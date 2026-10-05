@@ -84,8 +84,8 @@ function BookingPage() {
             ))}
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
-            <Field label="الاسم" error={errors.name}><input name="name" className="field" maxLength={100} /></Field>
-            <Field label="رقم الجوال" error={errors.phone}><input name="phone" dir="ltr" className="field text-right" placeholder="+966" maxLength={20} /></Field>
+            <Field label="الاسم" error={errors["name"]}><input name="name" className="field" maxLength={100} /></Field>
+            <Field label="رقم الجوال" error={errors["phone"]}><input name="phone" dir="ltr" className="field text-right" placeholder="+966" maxLength={20} /></Field>
             <Field label="الدولة"><input name="country" className="field" defaultValue="السعودية" maxLength={50} /></Field>
             <Field label="الدورة">
               <select name="course" defaultValue={course ?? ""} className="field">
@@ -106,7 +106,7 @@ function BookingPage() {
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({ label, error, children }: { label: string; error?: string | undefined; children: React.ReactNode }) {
   return (
     <label className="block">
       <span className="mb-2 block text-[13px] text-muted-foreground">{label}</span>
